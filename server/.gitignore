@@ -6,10 +6,10 @@ build/
 !**/src/test/**
 *.lst
 *.class
-*pom.properties
-
+pom.properties
 *.jar
 *.jar.*
+jpms.args
 
 ### STS ###
 .apt_generated

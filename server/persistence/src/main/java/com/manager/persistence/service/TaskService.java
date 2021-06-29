@@ -1,8 +1,8 @@
-package com.manager.service;
+package com.manager.persistence.service;
 
-import com.manager.domain.Task;
+import com.manager.persistence.domain.Task;
 import org.springframework.stereotype.Service;
-import com.manager.repository.TaskRepository;
+import com.manager.persistence.repository.TaskRepository;
 
 import java.util.List;
 

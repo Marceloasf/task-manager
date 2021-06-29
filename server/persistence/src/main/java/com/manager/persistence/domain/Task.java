@@ -1,4 +1,4 @@
-package com.manager.domain;
+package com.manager.persistence.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
