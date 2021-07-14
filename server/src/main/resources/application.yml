@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: taskmanager-api
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskmanager_db
+    driverClassName: org.postgresql.Driver
+    username: manager
+    password: manager
+    platform: postgresql
+    hikari:
+      maximum-pool-size: 2
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        show_sql: false
+        format_sql: true
+  liquibase:
+    parameters:
+      schema: manager
+    change-log: classpath:/db/master.xml
+
+server:
+  port: 8080
