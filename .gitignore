@@ -1,0 +1,57 @@
+#/IntelliJ - Java
+build/
+.idea/
+.gradle
+local.properties
+*.iml
+/server/*/out/*
+*.class
+*.jar
+*.jar.*
+jpms.args
+!gradle/wrapper/gradle-wrapper.jar
+HELP.md
+*.lst
+
+# node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# vscode
+
+*.vscode
+
+# Directories
+**/src/main/generated/**
+**/server/**/bin/**
+
+# Generated
+server/**/application.root
+
+# Eclipse
+
+*.pydevproject
+.project
+.settings
+.metadata
+*.cache-*
+/tmp/**
+/tmp/**/*
+*.tmp
+*.bak
+*.swp
+*.exe
+*~.nib
+local.properties
+.classpath
+.settings/**
+.loadpath
+/src/main/resources/rebel.xml
+/build/
+*.prefs
+/server/.project
+/server/.settings
+
+*.DS_Store
