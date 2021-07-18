@@ -4,46 +4,46 @@ import com.taskmanager.domain.Task;
 import com.taskmanager.service.TaskService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "tasks")
 public class TaskResource {
 
-    private final TaskService taskService;
+    private final TaskService service;
 
     public TaskResource(TaskService taskService) {
-        this.taskService = taskService;
+        this.service = taskService;
     }
 
     @GetMapping
     public List<Task> findAll() {
 
-        var task = new Task();
-        task.setId(1L);
-        task.setTitle("TESTE");
-        task.setDescription("DESCRIPTION");
-        task.setBirthdate(LocalDateTime.now());
+        return this.service.findAll();
+    }
 
-        return List.of(task);
+    @GetMapping("/{id}")
+    public Task findById(@PathVariable("id") Long id) {
+
+        return this.service.findById(id);
     }
 
     @PostMapping
     public Task save(@RequestBody Task newTask) {
 
-        return this.taskService.save(newTask);
+        return this.service.save(newTask);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@RequestParam Long id) {
+    public void delete(@PathVariable("id") Long id) {
 
-        this.taskService.delete(id);
+        this.service.delete(id);
     }
 }

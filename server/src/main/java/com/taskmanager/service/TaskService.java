@@ -3,10 +3,12 @@ package com.taskmanager.service;
 import com.taskmanager.domain.Task;
 import com.taskmanager.repository.TaskRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class TaskService {
 
     private final TaskRepository repository;
@@ -21,13 +23,20 @@ public class TaskService {
         return this.repository.save(newTask);
     }
 
+    public void delete(Long id) {
+
+        this.repository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
     public List<Task> findAll() {
 
         return this.repository.findAll();
     }
 
-    public void delete(Long id) {
+    @Transactional(readOnly = true)
+    public Task findById(Long id) {
 
-        this.repository.deleteById(id);
+        return this.repository.findById(id).orElseThrow(RuntimeException::new);
     }
 }
